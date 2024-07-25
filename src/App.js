@@ -1,23 +1,20 @@
-import logo from './logo.svg';
-import './App.css';
-
+import "./App.css";
+import { Contact } from "./components/Contact";
 function App() {
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      <Contact
+        contactImage="https://dragonball.guru/wp-content/uploads/2021/03/goku-profile-e1616173641804-400x400.png"
+        contactName="Juan Perez Bacayaru"
+        iconDirection="bi bi-geo-alt"
+        iconNumber="bi bi-telephone"
+        iconEmail="bi bi-envelope"
+        contactDirection="Los Notros #125, Concepción, Chile"
+        contactNumber="+569 58436245"
+        contactEmail="juanitoperez@gmail.com"
+        iconEdit="bi bi-pencil"
+        iconDelete="bi bi-trash3"
+      />
     </div>
   );
 }
