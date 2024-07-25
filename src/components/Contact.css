@@ -3,9 +3,9 @@
     display: flex;
     align-items: center;
     background-color: #1f2335;
-    width: 70%;
+    width: 60%;
     margin: auto;
-    border: 2px solid #a9b1d6;
+    border: 2px solid #bb9af7;
     border-radius: 20px;
     padding: 15px 20px;
 }
@@ -18,7 +18,7 @@
     border: 1px solid;
     border-radius: 50%;
     overflow: hidden;
-    background-color: #c0caf5;
+    background-color: #7aa2f7;
     position: relative;
 }
 
@@ -32,9 +32,10 @@
 }
 
 .contactInfo {
+    margin-left: 10px;
     display: flex;
     flex-direction: column;
-    color: #c0caf5;
+    color: #bb9af7;
     row-gap: 12px;
     font-family: monospace;
 }
@@ -53,7 +54,7 @@
     justify-content: space-between;
     width: 80px;
     font-size: 20px;
-    color: #c0caf5;
+    color: #bb9af7;
 }
 
 .contactIcons i{
