@@ -1,0 +1,73 @@
+.formContainer {
+  min-width: 700px;
+  display: flex;
+  flex-direction: column;
+  background-color: #191013;
+  width: 60%;
+  border: 2px solid #f4f4f2;
+  border-radius: 20px;
+  padding: 20px 25px;
+}
+
+.formTitle {
+    font-family: monospace;
+    color: #f4f4f2;
+    align-self: center;
+}
+
+.form {
+  display: flex;
+  width: 100%;
+  padding: 10px 20px;
+  flex-direction: column;
+  row-gap: 30px;
+}
+
+.labelInputContain {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  row-gap: 10px;
+}
+
+label {
+  font-size: 20px;
+  color: #f4f4f2;
+  font-family: monospace;
+}
+
+input {
+  background-color: transparent;
+  border: 1px solid #f4f4f2;
+  border-radius: 5px;
+  height: 40px;
+  width: 100%;
+  color: #f4f4f2;
+  padding: 5px 15px;
+  font-size: 17px;
+  font-family: monospace;
+}
+
+.containtButtonForm {
+  display: flex;
+  align-self: center;
+  gap: 20px;
+  padding: 5px 2px;
+}
+
+.formButton {
+  background-color: transparent;
+  border: 1px solid #f4f4f2;
+  border-radius: 5px;
+  height: 40px;
+  color: #f4f4f2;
+  padding: 5px 15px;
+  font-size: 17px;
+  font-family: monospace;
+  transition: 0.3s;
+}
+
+.formButton:hover {
+    background-color: #d4cdc57c;
+    cursor: pointer;
+}

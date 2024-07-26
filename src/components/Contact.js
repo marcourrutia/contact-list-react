@@ -9,22 +9,28 @@ export const Contact = (props) => {
       <div className="contactInfo">
         <h1 className="contactName">{props.contactName}</h1>
         <div className="boxInfo">
-          <i className={props.iconDirection}></i>
+          <i className="bi bi-geo-alt"></i>
           <span>{props.contactDirection}</span>
         </div>
         <div className="boxInfo">
-          <i className={props.iconNumber}></i>
+          <i className="bi bi-telephone"></i>
           <span>{props.contactNumber}</span>
         </div>
         <div className="boxInfo">
-          <i className={props.iconEmail}></i>
+          <i className="bi bi-envelope"></i>
           <span>{props.contactEmail}</span>
         </div>
       </div>
       <div className="contactIcons">
-        <i className={props.iconEdit}></i>
-        <i className={props.iconDelete}></i>
+        <i className="bi bi-pencil"></i>
+        <i className="bi bi-trash3"></i>
       </div>
     </div>
   );
 };
+
+/* contactImage="https://dragonball.guru/wp-content/uploads/2021/03/goku-profile-e1616173641804-400x400.png"
+        contactName="Juan Perez Bacayaru"
+        contactDirection="Los Notros #125, Concepción, Chile"
+        contactNumber="+569 58436245"
+        contactEmail="juanitoperez@gmail.com" */

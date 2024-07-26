@@ -2,10 +2,9 @@
     min-width: 700px;
     display: flex;
     align-items: center;
-    background-color: #1f2335;
+    background-color: #191013;
     width: 60%;
-    margin: auto;
-    border: 2px solid #bb9af7;
+    border: 2px solid #f4f4f2;
     border-radius: 20px;
     padding: 15px 20px;
 }
@@ -18,7 +17,7 @@
     border: 1px solid;
     border-radius: 50%;
     overflow: hidden;
-    background-color: #7aa2f7;
+    background-color: #f4f4f2;
     position: relative;
 }
 
@@ -35,7 +34,7 @@
     margin-left: 10px;
     display: flex;
     flex-direction: column;
-    color: #bb9af7;
+    color: #f4f4f2;
     row-gap: 12px;
     font-family: monospace;
 }
@@ -54,7 +53,7 @@
     justify-content: space-between;
     width: 80px;
     font-size: 20px;
-    color: #bb9af7;
+    color: #f4f4f2;
 }
 
 .contactIcons i{
