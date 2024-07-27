@@ -1,32 +1,30 @@
+import { useContext, useEffect } from "react";
+import { Context } from "../store/context";
 import { Contact } from "../components/Contact";
 import { ButtonNewContact } from "../components/ButtonNEwContact";
 import "./ContactList.css";
 
-/* const getList = () => {
-  fetch("https://playground.4geeks.com/todo/users/devMarco", {
-    method: "GET",
-    headers: {
-      "Content-Type": "application/json",
-    },
-  })
-    .then((response) => response.json())
-    .then((data) => setList(data.todos))
-    .catch((error) => alert(error));
-};
-useEffect(() => {
-  getList();
-}, []); */
-
 export const ContactList = () => {
+  const state = useContext(Context);
+  useEffect(() => {
+    state.actions.getContact();
+  }, []);
   return (
     <div>
       <section className="btnView">
         <ButtonNewContact />
       </section>
       <section className="listView">
-        <Contact />
-        <Contact />
-        <Contact />
+        {state.store.contact.map((item) => (
+          <Contact
+            key={item.id}
+            contactImage={`https://rickandmortyapi.com/api/character/avatar/${item.id}.jpeg`}
+            contactName={item.name}
+            contactDirection={item.address}
+            contactNumber={item.phone}
+            contactEmail={item.email}
+          />
+        ))}
       </section>
     </div>
   );

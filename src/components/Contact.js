@@ -28,9 +28,3 @@ export const Contact = (props) => {
     </div>
   );
 };
-
-/* contactImage="https://dragonball.guru/wp-content/uploads/2021/03/goku-profile-e1616173641804-400x400.png"
-        contactName="Juan Perez Bacayaru"
-        contactDirection="Los Notros #125, Concepción, Chile"
-        contactNumber="+569 58436245"
-        contactEmail="juanitoperez@gmail.com" */
