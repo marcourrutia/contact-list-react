@@ -1,15 +1,16 @@
 import "./App.css";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
-import { ContactList } from "./Views/ContactList";
-import { NewContact } from "./Views/NewContact";
+import { ContactList } from "./views/ContactList";
+import { NewContact } from "./views/NewContact";
+import injectContext from "./store/context";
 
 function App() {
   return <BrowserRouter>
   <Routes>
-    <Route path="/contactList" element={ <ContactList /> }/>
+    <Route path="/" element={ <ContactList /> }/>
     <Route path="/newContact" element={ <NewContact /> }/>
   </Routes>
   </BrowserRouter>
 }
 
-export default App;
+export default injectContext(App);
