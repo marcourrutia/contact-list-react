@@ -1,6 +1,10 @@
 import "./Contact.css";
 
 export const Contact = (props) => {
+  const handleDeleteClick = () => {
+    props.onDelete(props.contactId)
+  }
+
   return (
     <div className="container">
       <div className="contactPicture">
@@ -23,7 +27,7 @@ export const Contact = (props) => {
       </div>
       <div className="contactIcons">
         <i className="bi bi-pencil"></i>
-        <i className="bi bi-trash3"></i>
+        <i className="bi bi-trash3" onClick={handleDeleteClick}></i>
       </div>
     </div>
   );

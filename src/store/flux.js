@@ -2,7 +2,6 @@ const getState = ({ getActions, getStore, setStore }) => {
   return {
     store: {
       contact: [],
-      photo: [],
     },
     actions: {
       getContact: () => {
@@ -22,7 +21,27 @@ const getState = ({ getActions, getStore, setStore }) => {
             });
           })
           .catch((error) => alert(error));
-      },      
+      },
+      customFetch: (url, method, info, onSuccess) => {
+        const config = {
+          method: method,
+          headers: {
+            "Content-Type": "application/json",
+          },
+        };
+        if (method !== "DELETE") {
+          config.body = JSON.stringify(info);
+        }
+        fetch(url, config)
+          .then((data) => {
+            if (onSuccess) {
+              onSuccess(data);
+            }
+          })
+          .catch((error) => {
+            alert(error);
+          });
+      },
     },
   };
 };

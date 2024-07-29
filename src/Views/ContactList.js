@@ -9,6 +9,16 @@ export const ContactList = () => {
   useEffect(() => {
     state.actions.getContact();
   }, []);
+
+  const url =
+    "https://playground.4geeks.com/contact/agendas/contactMarco/contacts/";
+
+  const handleDelete = (id) => {
+    state.actions.customFetch(url + id, "DELETE", null, (response) => {
+      alert("Contacto eliminado correctamente");
+      state.actions.getContact();
+    });
+  };
   return (
     <div>
       <section className="btnView">
@@ -18,11 +28,13 @@ export const ContactList = () => {
         {state.store.contact.map((item) => (
           <Contact
             key={item.id}
+            contactId={item.id}
             contactImage={`https://rickandmortyapi.com/api/character/avatar/${item.id}.jpeg`}
             contactName={item.name}
             contactDirection={item.address}
             contactNumber={item.phone}
             contactEmail={item.email}
+            onDelete={handleDelete}
           />
         ))}
       </section>

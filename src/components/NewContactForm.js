@@ -12,37 +12,10 @@ export const NewContactForm = (props) => {
     address: "",
   });
 
-  const postContact = (contact) => {
-    fetch(
-      "https://playground.4geeks.com/contact/agendas/contactMarco/contacts",
-      {
-        method: "POST",
-        headers: {
-          "Content-Type": "application/json",
-        },
-        body: JSON.stringify(contact),
-      }
-    )
-      .catch((error) => {
-        alert(error);
-      })
-      .finally(() => {
-        setData({
-          name: "",
-          phone: "",
-          email: "",
-          address: "",
-        });
-        alert("Contacto agregado");
-      });
-  };
-
   const isEmpty = (value) => value === "";
-
   const hasEmptyFields = (obj) => {
     return Object.values(obj).some(isEmpty);
   };
-
   const handleOnChange = (event) => {
     setData({
       ...data,
@@ -54,12 +27,24 @@ export const NewContactForm = (props) => {
     if (hasEmptyFields(data)) {
       alert("Debe completar todos los datos");
     } else {
-      postContact(data);
+      state.actions.customFetch(
+        "https://playground.4geeks.com/contact/agendas/contactMarco/contacts",
+        "POST",
+        data,
+        (response) => {
+          setData({
+            name: "",
+            phone: "",
+            email: "",
+            address: "",
+          });
+          alert("Contacto agregado")}
+      );
     }
   };
   return (
     <div className="formContainer">
-      <h1 className="formTitle">Nuevo contacto</h1>
+      <h1 className="formTitle">New Contact</h1>
       <hr style={{ width: "70%", alignSelf: "center", margin: "20px" }}></hr>
       <form className="form" onSubmit={handleSubmit}>
         <div className="labelInputContain">
@@ -104,7 +89,7 @@ export const NewContactForm = (props) => {
         </div>
         <div className="containtButtonForm">
           <Link to={props.cancelLink}>
-            <button className="formButton">Cancel</button>
+            <button className="formButton">Back</button>
           </Link>
           <button className="formButton" type="submit">
             Save
