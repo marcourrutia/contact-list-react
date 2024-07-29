@@ -1,10 +1,34 @@
 import "./NewContactForm.css";
-import { Link } from "react-router-dom";
-import { useState, useContext } from "react";
+import { Link, useParams, useNavigate } from "react-router-dom";
+import { useState, useContext, useEffect } from "react";
 import { Context } from "../store/context";
 
 export const NewContactForm = (props) => {
   const state = useContext(Context);
+  const { id } = useParams();
+  const navigate = useNavigate();
+
+  useEffect(() => {
+    if (id) {
+      const contact = state.store.contact.find((c) => c.id === parseInt(id));
+      if (contact) {
+        setData({
+          name: contact.name,
+          phone: contact.phone,
+          email: contact.email,
+          address: contact.address,
+        });
+      }
+    }
+  }, [id, state.store.contact]);
+
+  const url = id
+    ? `https://playground.4geeks.com/contact/agendas/contactMarco/contacts/${id}`
+    : "https://playground.4geeks.com/contact/agendas/contactMarco/contacts";
+
+  const method = id ? "PUT" : "POST";
+  const title = id ? "Edit Contact" : "New Contact"
+
   const [data, setData] = useState({
     name: "",
     phone: "",
@@ -27,24 +51,21 @@ export const NewContactForm = (props) => {
     if (hasEmptyFields(data)) {
       alert("Debe completar todos los datos");
     } else {
-      state.actions.customFetch(
-        "https://playground.4geeks.com/contact/agendas/contactMarco/contacts",
-        "POST",
-        data,
-        (response) => {
-          setData({
-            name: "",
-            phone: "",
-            email: "",
-            address: "",
-          });
-          alert("Contacto agregado")}
-      );
+      state.actions.customFetch(url, method, data, (response) => {
+        setData({
+          name: "",
+          phone: "",
+          email: "",
+          address: "",
+        });
+        alert(method === "POST" ? "Contacto agregado" : "Contacto actualizado");
+        navigate("/");
+      });
     }
   };
   return (
     <div className="formContainer">
-      <h1 className="formTitle">New Contact</h1>
+      <h1 className="formTitle">{title}</h1>
       <hr style={{ width: "70%", alignSelf: "center", margin: "20px" }}></hr>
       <form className="form" onSubmit={handleSubmit}>
         <div className="labelInputContain">

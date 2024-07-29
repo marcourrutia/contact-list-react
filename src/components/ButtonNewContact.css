@@ -1,5 +1,5 @@
 .btnNewContact {
-    background-color: #191013;
+    background-color: #1abc9cd8;
     border: 1px solid #f4f4f2;
     border-radius: 5px;
     height: 40px;
@@ -11,6 +11,6 @@
   }
   
   .btnNewContact:hover {
-      background-color: #d4cdc57c;
+      background-color: #1abc9c69;
       cursor: pointer;
   }

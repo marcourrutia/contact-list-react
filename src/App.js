@@ -8,7 +8,8 @@ function App() {
   return <BrowserRouter>
   <Routes>
     <Route path="/" element={ <ContactList /> }/>
-    <Route path="/newContact" element={ <NewContact /> }/>
+    <Route path="/new-contact" element={ <NewContact /> }/>
+    <Route path="edit-contact/:id" element={<NewContact />}/>
   </Routes>
   </BrowserRouter>
 }

@@ -1,6 +1,14 @@
 import "./Contact.css";
+import { useNavigate } from "react-router-dom";
 
 export const Contact = (props) => {
+
+  const navigation = useNavigate();
+
+  const handleEditClick = () => {
+    navigation(`/edit-contact/${props.contactId}`);
+  }
+
   const handleDeleteClick = () => {
     props.onDelete(props.contactId)
   }
@@ -26,7 +34,7 @@ export const Contact = (props) => {
         </div>
       </div>
       <div className="contactIcons">
-        <i className="bi bi-pencil"></i>
+        <i className="bi bi-pencil" onClick={handleEditClick}></i>
         <i className="bi bi-trash3" onClick={handleDeleteClick}></i>
       </div>
     </div>
