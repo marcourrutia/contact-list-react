@@ -4,13 +4,13 @@ import { useState, useContext, useEffect } from "react";
 import { Context } from "../store/context";
 
 export const NewContactForm = (props) => {
-  const state = useContext(Context);
+  const { actions, store } = useContext(Context);
   const { id } = useParams();
   const navigate = useNavigate();
 
   useEffect(() => {
     if (id) {
-      const contact = state.store.contact.find((c) => c.id === parseInt(id));
+      const contact = store.contact.find((c) => c.id === parseInt(id));
       if (contact) {
         setData({
           name: contact.name,
@@ -20,14 +20,14 @@ export const NewContactForm = (props) => {
         });
       }
     }
-  }, [id, state.store.contact]);
+  }, [id, store.contact]);
 
   const url = id
     ? `https://playground.4geeks.com/contact/agendas/contactMarco/contacts/${id}`
     : "https://playground.4geeks.com/contact/agendas/contactMarco/contacts";
 
   const method = id ? "PUT" : "POST";
-  const title = id ? "Edit Contact" : "New Contact"
+  const title = id ? "Edit Contact" : "New Contact";
 
   const [data, setData] = useState({
     name: "",
@@ -51,13 +51,7 @@ export const NewContactForm = (props) => {
     if (hasEmptyFields(data)) {
       alert("Debe completar todos los datos");
     } else {
-      state.actions.customFetch(url, method, data, (response) => {
-        setData({
-          name: "",
-          phone: "",
-          email: "",
-          address: "",
-        });
+      actions.customFetch(url, method, data, () => {
         alert(method === "POST" ? "Contacto agregado" : "Contacto actualizado");
         navigate("/");
       });

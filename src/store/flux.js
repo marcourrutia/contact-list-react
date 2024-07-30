@@ -22,7 +22,7 @@ const getState = ({ getActions, getStore, setStore }) => {
           })
           .catch((error) => alert(error));
       },
-      customFetch: (url, method, info, onSuccess) => {
+      customFetch: (url, method, data, onSuccess) => {
         const config = {
           method: method,
           headers: {
@@ -30,12 +30,12 @@ const getState = ({ getActions, getStore, setStore }) => {
           },
         };
         if (method !== "DELETE") {
-          config.body = JSON.stringify(info);
+          config.body = JSON.stringify(data);
         }
         fetch(url, config)
-          .then((data) => {
+          .then((response) => {
             if (onSuccess) {
-              onSuccess(data);
+              onSuccess(response);
             }
           })
           .catch((error) => {
