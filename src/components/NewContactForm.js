@@ -20,7 +20,7 @@ export const NewContactForm = (props) => {
         });
       }
     }
-  }, [id, store.contact]);
+  }, []);
 
   const url = id
     ? `https://playground.4geeks.com/contact/agendas/contactMarco/contacts/${id}`
